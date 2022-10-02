@@ -41,22 +41,25 @@ namespace HeyUrlChallengeCodeDotnet.Controllers
         {
             var result =await _urlService.UpdateUrlClick(shortCode);
 
-            return Redirect(result.LongUrl);
+           return result == null ? BadRequest(): Redirect(result.LongUrl);
         }
 
         [Route("urls/{urlId}")]
         public async Task<IActionResult> Show(string urlId)
         {
             var result = await _urlService.GetUrlDetails(Guid.Parse(urlId));
-            return View(result.ToShowViewModel());
+
+            return result == null? BadRequest(): View(result.ToShowViewModel());
 
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(HomeViewModel model)
         {
-            var longUrl = model.NewUrl.LongUrl;
-            await _urlService.AddNewUrl(longUrl);
+            
+            var result = await _urlService.AddNewUrl(model?.NewUrl?.LongUrl);
+            if (result == null)
+                return BadRequest();
 
             var urls = await _urlService.GetUrls();
 
