@@ -1,17 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.808.8
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hey-url-challenge-code-dotnet", "hey-url-challenge-code-dotnet\hey-url-challenge-code-dotnet.csproj", "{C673D8C3-FE4F-465C-9457-3A9E08ADE305}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{5399632D-585A-4CA3-B9BE-A4C2559D6DEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hey-url-challenge-code-dotnet", "hey-url-challenge-code-dotnet\hey-url-challenge-code-dotnet.csproj", "{C673D8C3-FE4F-465C-9457-3A9E08ADE305}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEF9DBB3-847A-427F-98FE-E431729F938C}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
 		CHALLENGE.md = CHALLENGE.md
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hey-url-domain", "hey-url-domain\hey-url-domain.csproj", "{A88A8FDE-7464-48A0-AF0C-8BC35BB0DFDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hey-url-domain.Tests", "hey-url-domain.Tests\hey-url-domain.Tests.csproj", "{86F3532B-9AD9-4072-BAA3-3F9573DCA4B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hey-url-challenge-code-dotnet.Tests", "hey-url-challenge-code-dotnet.Tests\hey-url-challenge-code-dotnet.Tests.csproj", "{A1B4176C-E574-448E-A3AF-0E49C0421113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +27,18 @@ Global
 		{C673D8C3-FE4F-465C-9457-3A9E08ADE305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C673D8C3-FE4F-465C-9457-3A9E08ADE305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C673D8C3-FE4F-465C-9457-3A9E08ADE305}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5399632D-585A-4CA3-B9BE-A4C2559D6DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5399632D-585A-4CA3-B9BE-A4C2559D6DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5399632D-585A-4CA3-B9BE-A4C2559D6DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5399632D-585A-4CA3-B9BE-A4C2559D6DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88A8FDE-7464-48A0-AF0C-8BC35BB0DFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88A8FDE-7464-48A0-AF0C-8BC35BB0DFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88A8FDE-7464-48A0-AF0C-8BC35BB0DFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88A8FDE-7464-48A0-AF0C-8BC35BB0DFDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F3532B-9AD9-4072-BAA3-3F9573DCA4B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F3532B-9AD9-4072-BAA3-3F9573DCA4B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F3532B-9AD9-4072-BAA3-3F9573DCA4B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F3532B-9AD9-4072-BAA3-3F9573DCA4B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B4176C-E574-448E-A3AF-0E49C0421113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B4176C-E574-448E-A3AF-0E49C0421113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B4176C-E574-448E-A3AF-0E49C0421113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B4176C-E574-448E-A3AF-0E49C0421113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

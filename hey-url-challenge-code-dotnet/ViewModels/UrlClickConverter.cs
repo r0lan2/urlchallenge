@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using hey_url_challenge_code_dotnet.Models;
 using hey_url_challenge_code_dotnet.ViewModels;
+using HeyUrlDomain.Models;
 
 namespace hey_url_challenge_code_dotnet.Services
 {

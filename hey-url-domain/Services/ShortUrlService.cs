@@ -2,7 +2,7 @@
 using System.Text;
 
 
-namespace hey_url_challenge_code_dotnet.Services
+namespace HeyUrlDomain.Services
 {
     public class ShortUrlService : IShortUrlService
     {

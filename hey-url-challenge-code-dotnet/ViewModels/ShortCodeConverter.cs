@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using hey_url_challenge_code_dotnet.Models;
 using hey_url_challenge_code_dotnet.ViewModels;
-using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
+using HeyUrlDomain.Models;
+
 
 namespace hey_url_challenge_code_dotnet.Services
 {

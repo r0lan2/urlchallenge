@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using hey_url_challenge_code_dotnet.Models;
-using HeyUrlChallengeCodeDotnet.Data;
+using HeyUrlDomain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace hey_url_challenge_code_dotnet.Data
+namespace HeyUrlDomain.Data
 {
     public class UrlRepository : IUrlRepository
     {
@@ -24,11 +23,6 @@ namespace hey_url_challenge_code_dotnet.Data
         public async Task<Url> GetUrlDetails(Guid id)
         {
             return await _context.Urls.Include(s=> s.Clicks).FirstOrDefaultAsync(u => u.Id == id);
-        }
-
-        public async Task<Url> GetById(Guid id)
-        {
-            return await _context.Urls.FirstOrDefaultAsync(u=> u.Id == id);
         }
 
         public async Task<List<Url>> GetAll()

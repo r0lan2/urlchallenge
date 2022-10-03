@@ -1,7 +1,7 @@
-using hey_url_challenge_code_dotnet.Models;
+using HeyUrlDomain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HeyUrlChallengeCodeDotnet.Data
+namespace HeyUrlDomain.Data
 {
     public class ApplicationContext : DbContext
     {

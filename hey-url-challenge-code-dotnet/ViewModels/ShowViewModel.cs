@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using hey_url_challenge_code_dotnet.Models;
+using HeyUrlDomain.Models;
+
 
 namespace hey_url_challenge_code_dotnet.ViewModels
 {

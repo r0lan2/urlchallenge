@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using hey_url_challenge_code_dotnet.Models;
-using hey_url_challenge_code_dotnet.ViewModels;
+using HeyUrlDomain.Models;
 
-namespace hey_url_challenge_code_dotnet.Services
+namespace HeyUrlDomain.Services
 {
     public interface IUrlService
     {

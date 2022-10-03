@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace hey_url_challenge_code_dotnet.Models
+namespace HeyUrlDomain.Models
 {
     public class Url
     {

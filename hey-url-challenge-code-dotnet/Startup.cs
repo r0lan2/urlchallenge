@@ -1,6 +1,5 @@
-using hey_url_challenge_code_dotnet.Data;
-using hey_url_challenge_code_dotnet.Services;
-using HeyUrlChallengeCodeDotnet.Data;
+using HeyUrlDomain.Data;
+using HeyUrlDomain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

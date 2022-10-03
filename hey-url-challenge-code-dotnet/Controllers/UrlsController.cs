@@ -3,26 +3,23 @@ using System.Threading.Tasks;
 using hey_url_challenge_code_dotnet;
 using hey_url_challenge_code_dotnet.Services;
 using hey_url_challenge_code_dotnet.ViewModels;
+using HeyUrlDomain.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+
 
 namespace HeyUrlChallengeCodeDotnet.Controllers
 {
     [Route("/")]
     public class UrlsController : Controller
     {
-        private readonly ILogger<UrlsController> _logger;
-        
         private readonly IUrlService _urlService;
-        private readonly HttpContext _httpContext;
+        private readonly IHttpContextAccessor _httpContextAccesor;
 
-        public UrlsController(ILogger<UrlsController> logger, IUrlService urlService, IHttpContextAccessor httpContextAccessor)
+        public UrlsController(IUrlService urlService, IHttpContextAccessor httpContextAccessor)
         {
-            _logger = logger;
             _urlService = urlService;
-            _httpContext = httpContextAccessor.HttpContext;
-
+            _httpContextAccesor = httpContextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -31,7 +28,7 @@ namespace HeyUrlChallengeCodeDotnet.Controllers
             
             var urls = await _urlService.GetUrls();
 
-            model.Urls = urls.ToUrlResponseList(_httpContext.Request.GetBaseUrl());
+            model.Urls = urls.ToUrlResponseList(_httpContextAccesor.GetBaseUrl());
             model.NewUrl = new();
             return View(model);
         }
@@ -63,7 +60,7 @@ namespace HeyUrlChallengeCodeDotnet.Controllers
 
             var urls = await _urlService.GetUrls();
 
-            model.Urls = urls.ToUrlResponseList(_httpContext.Request.GetBaseUrl());
+            model.Urls = urls.ToUrlResponseList(_httpContextAccesor.GetBaseUrl());
             model.NewUrl = new();
 
             return View("Index", model);

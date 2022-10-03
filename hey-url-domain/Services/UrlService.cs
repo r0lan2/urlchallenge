@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using hey_url_challenge_code_dotnet.Data;
-using hey_url_challenge_code_dotnet.Models;
+using HeyUrlDomain.Data;
+using HeyUrlDomain.Models;
 using Shyjus.BrowserDetection;
 
-namespace hey_url_challenge_code_dotnet.Services
+namespace HeyUrlDomain.Services
 {
     public class UrlService : IUrlService
     {
