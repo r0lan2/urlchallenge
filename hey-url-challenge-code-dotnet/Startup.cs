@@ -1,3 +1,5 @@
+using FluentValidation;
+using hey_url_domain.Validators;
 using HeyUrlDomain.Data;
 using HeyUrlDomain.Services;
 using Microsoft.AspNetCore.Builder;
@@ -28,7 +30,8 @@ namespace HeyUrlChallengeCodeDotnet
             services.AddSingleton<IShortUrlService, ShortUrlService>();
             services.AddScoped<IUrlRepository, UrlRepository>();
             services.AddScoped<IUrlService, UrlService>();
-            
+            services.AddScoped<UrlValidator>();
+
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

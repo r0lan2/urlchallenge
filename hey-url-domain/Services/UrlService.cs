@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using hey_url_domain.Validators;
 using HeyUrlDomain.Data;
 using HeyUrlDomain.Models;
 using Shyjus.BrowserDetection;
@@ -13,11 +14,14 @@ namespace HeyUrlDomain.Services
         private readonly IUrlRepository _repository;
         private readonly IShortUrlService _shortUrlService;
         private readonly IBrowserDetector _browserDetector;
-        public UrlService(IShortUrlService shortUrlService, IUrlRepository repoRepository, IBrowserDetector browserDetector)
+        private readonly UrlValidator _validator;
+
+        public UrlService(IShortUrlService shortUrlService, IUrlRepository repoRepository, IBrowserDetector browserDetector, UrlValidator validator)
         {
             _shortUrlService = shortUrlService;
             _repository = repoRepository;
             _browserDetector = browserDetector;
+            _validator= validator;
         }
 
         public async Task<IEnumerable<Url>> GetUrls()
@@ -45,7 +49,13 @@ namespace HeyUrlDomain.Services
         }
 
         public async Task<Url> AddNewUrl(string longUrl)
-        { 
+        {
+            //TODO: Change to DTO so return a better response to UI
+            var result = await _validator.ValidateAsync(longUrl);
+
+            if (!result.IsValid)
+                return null;
+
             var shortUrl = _shortUrlService.GetUrl();
             Url url = new Url()
             {
