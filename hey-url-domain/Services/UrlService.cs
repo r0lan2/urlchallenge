@@ -10,6 +10,7 @@ using HeyUrlDomain.Data;
 using HeyUrlDomain.Models;
 using JsonApiDotNetCore.Resources;
 using JsonApiDotNetCore.Resources.Annotations;
+using Microsoft.EntityFrameworkCore;
 using Shyjus.BrowserDetection;
 
 namespace HeyUrlDomain.Services
@@ -88,5 +89,17 @@ namespace HeyUrlDomain.Services
         public int Count { get; set; }
         public DateTime CreateDateTime { get; set; }
     }
+
+    public class AppDbContext : DbContext
+    {
+        public DbSet<UrlModel> People => Set<UrlModel>();
+
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
+    }
+
+
 
 }
