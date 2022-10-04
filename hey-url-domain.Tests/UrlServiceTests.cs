@@ -34,6 +34,17 @@ namespace hey_url_domain.Tests
             Assert.Null(exception);
         }
 
+        [Theory]
+        [InlineData("badUrl")]
+        [InlineData("http://")]
+        [InlineData("hola.com")]
+        public async Task AddNewUrl_GetWrongLongUrl_ReturnIsOk_to_False(string longUrl)
+        {
+            var result = await Service.AddNewUrl(longUrl);
+            Assert.False(result.IsOk);
+        }
+
+
         [Fact]
         public async Task GetUrlDetails_Success()
         {
