@@ -4,9 +4,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-@if (TempData["Notice"] is not null)
+@if (Model.ErrorMessages.Any())
 {
-    <div class="card-panel notice deep-orange">@TempData["Notice"]</div>
+    
+    @foreach (var message in Model.ErrorMessages)
+    {
+        <div class="card-panel notice deep-orange">@message</div>
+    }
 }
 
 <div class="row">

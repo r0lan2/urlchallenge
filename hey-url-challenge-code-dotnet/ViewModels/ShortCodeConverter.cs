@@ -8,9 +8,9 @@ namespace hey_url_challenge_code_dotnet.Services
 {
     public static class ShortCodeConverter
     {
-        public static List<UrlResponse> ToUrlResponseList(this IEnumerable<Url> urls, string baseUrl)
+        public static List<UrlListResponse> ToUrlResponseList(this IEnumerable<Url> urls, string baseUrl)
         {
-            return urls.Select(s => new UrlResponse()
+            return urls.Select(s => new UrlListResponse()
             {
                 Id = s.Id,
                 LongUrl = s.LongUrl,

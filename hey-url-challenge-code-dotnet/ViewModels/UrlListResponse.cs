@@ -2,7 +2,7 @@
 
 namespace hey_url_challenge_code_dotnet.ViewModels
 {
-    public class UrlResponse
+    public class UrlListResponse
     {
         public Guid Id { get; set; }
         public string ShortCode { get; set; }

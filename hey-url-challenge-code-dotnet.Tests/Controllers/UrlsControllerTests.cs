@@ -9,6 +9,7 @@ using Moq;
 using Xunit;
 using hey_url_challenge_code_dotnet;
 using hey_url_challenge_code_dotnet.ViewModels;
+using hey_url_domain.Model;
 using HeyUrlDomain.Models;
 
 namespace hey_url_challenge_code_dotnet.Tests.Controllers
@@ -76,7 +77,7 @@ namespace hey_url_challenge_code_dotnet.Tests.Controllers
             var viewModel = Fixture.Build<HomeViewModel>().With(_ => _.NewUrl, newUrl).Create();
 
 
-            urlServiceMock.Setup(s => s.AddNewUrl(It.IsAny<string>())).ReturnsAsync(fakeUrl);
+            urlServiceMock.Setup(s => s.AddNewUrl(It.IsAny<string>())).ReturnsAsync(new UrlCreationResponse(){ Url = fakeUrl });
 
             var controller = new UrlsController(urlServiceMock.Object, httpContextAccesorMock.Object);
             var result = await controller.Create(viewModel);

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using hey_url_domain.Model;
+using hey_url_domain.Services;
 using hey_url_domain.Validators;
 using HeyUrlDomain.Data;
 using HeyUrlDomain.Models;
@@ -48,13 +50,16 @@ namespace HeyUrlDomain.Services
             return urlItem;
         }
 
-        public async Task<Url> AddNewUrl(string longUrl)
+        public async Task<UrlCreationResponse> AddNewUrl(string longUrl)
         {
-            //TODO: Change to DTO so return a better response to UI
+            var response = new UrlCreationResponse();
             var result = await _validator.ValidateAsync(longUrl);
 
             if (!result.IsValid)
-                return null;
+            {
+                response.SetValidationsWhenValidationsAreNotOk(result);
+                return response;
+            }
 
             var shortUrl = _shortUrlService.GetUrl();
             Url url = new Url()
@@ -65,7 +70,9 @@ namespace HeyUrlDomain.Services
                 LongUrl = longUrl
             };
             await _repository.Add(url);
-            return url;
+            response.Url = url;
+
+            return response;
         }
     }
 }

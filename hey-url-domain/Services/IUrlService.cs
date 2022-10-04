@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using hey_url_domain.Model;
 using HeyUrlDomain.Models;
 
 namespace HeyUrlDomain.Services
@@ -11,6 +12,6 @@ namespace HeyUrlDomain.Services
         Task<Url> GetUrlDetails(Guid id);
         Task<Url> GetUrlByCode(string shortUrlCode);
         Task<Url> UpdateUrlClick(string shortUrlCode);
-        Task<Url> AddNewUrl(string longUrl);
+        Task<UrlCreationResponse> AddNewUrl(string longUrl);
     }
 }

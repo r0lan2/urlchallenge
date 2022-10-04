@@ -53,15 +53,11 @@ namespace HeyUrlChallengeCodeDotnet.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(HomeViewModel model)
         {
-            
             var result = await _urlService.AddNewUrl(model?.NewUrl?.LongUrl);
-            if (result == null)
-                return BadRequest();
 
             var urls = await _urlService.GetUrls();
 
-            model.Urls = urls.ToUrlResponseList(_httpContextAccesor.GetBaseUrl());
-            model.NewUrl = new();
+            model = result.ToHomeViewModel(urls.ToUrlResponseList(_httpContextAccesor.GetBaseUrl()));
 
             return View("Index", model);
         }
