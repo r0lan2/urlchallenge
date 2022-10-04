@@ -13,9 +13,13 @@ namespace hey_url_challenge_code_dotnet.ViewModels
                 Urls = list
             };
             if (response.IsOk)
-                viewModel.NewUrl = new();
+            {
+                viewModel.NewUrl = new()
+                {
+                    LongUrl = string.Empty
+                };
+            }
             return viewModel;
-
         }
     }
 }

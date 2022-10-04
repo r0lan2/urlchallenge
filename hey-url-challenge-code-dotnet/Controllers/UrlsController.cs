@@ -53,6 +53,8 @@ namespace HeyUrlChallengeCodeDotnet.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(HomeViewModel model)
         {
+            ModelState.Clear();
+
             var result = await _urlService.AddNewUrl(model?.NewUrl?.LongUrl);
 
             var urls = await _urlService.GetUrls();
