@@ -49,6 +49,9 @@ namespace HeyUrlDomain.Services
         public async Task<Url> UpdateUrlClick(string shortUrlCode)
         {
             var urlItem = await GetUrlByCode(shortUrlCode);
+            if (urlItem == null)
+                return null;
+
             urlItem.Count++;
             urlItem.Clicks.Add(new UrlClick(){BrowserName = _browserDetector?.Browser?.Name, ClickDate = DateTime.Now.ToUniversalTime(), OsName = _browserDetector?.Browser?.OS});
             await _repository.Update(urlItem);
