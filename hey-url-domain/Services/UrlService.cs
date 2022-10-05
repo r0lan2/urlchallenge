@@ -8,8 +8,6 @@ using hey_url_domain.Services;
 using hey_url_domain.Validators;
 using HeyUrlDomain.Data;
 using HeyUrlDomain.Models;
-using JsonApiDotNetCore.Resources;
-using JsonApiDotNetCore.Resources.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Shyjus.BrowserDetection;
 
@@ -83,26 +81,4 @@ namespace HeyUrlDomain.Services
             return response;
         }
     }
-
-    [Resource("urls")]
-    public class UrlModel : Identifiable<Guid>
-    {
-        public string ShortUrl { get; set; }
-        public string LongUrl { get; set; }
-        public int Count { get; set; }
-        public DateTime CreateDateTime { get; set; }
-    }
-
-    public class AppDbContext : DbContext
-    {
-        public DbSet<UrlModel> People => Set<UrlModel>();
-
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        {
-        }
-    }
-
-
-
 }

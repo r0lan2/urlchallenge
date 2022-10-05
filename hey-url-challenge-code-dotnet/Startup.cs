@@ -4,7 +4,6 @@ using hey_url_domain.Services;
 using hey_url_domain.Validators;
 using HeyUrlDomain.Data;
 using HeyUrlDomain.Services;
-using JsonApiDotNetCore.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,17 +29,11 @@ namespace HeyUrlChallengeCodeDotnet
             services.AddBrowserDetection();
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase(databaseName: "HeyUrl"));
-            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase(databaseName: "HeyUrl"));
             services.AddSingleton<IShortUrlService, ShortUrlService>();
             services.AddScoped<IUrlRepository, UrlRepository>();
             services.AddScoped<IUrlService, UrlService>();
             services.AddScoped<UrlValidator>();
-            services.AddResourceService<ApiService>();
-            //services.AddJsonApi(options => options.Namespace = "api/v1",
-            //    resources: resourceGraphBuilder => resourceGraphBuilder.Add<UrlModel, Guid>());
-            //services.AddJsonApi<ApplicationContext>(options => options.Namespace="api");
 
-            services.AddJsonApi<AppDbContext>(options=>options.Namespace="api/v1");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,8 +55,6 @@ namespace HeyUrlChallengeCodeDotnet
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseJsonApi();
 
             app.UseEndpoints(endpoints =>
             {

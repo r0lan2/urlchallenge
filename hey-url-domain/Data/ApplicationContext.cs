@@ -10,5 +10,7 @@ namespace HeyUrlDomain.Data
         }
 
         public DbSet<Url> Urls { get; set; }
+
+        public  DbSet<UrlClick> Clicks { get; set; }
     }
 }

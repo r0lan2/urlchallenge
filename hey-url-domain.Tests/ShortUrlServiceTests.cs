@@ -23,8 +23,6 @@ namespace hey_url_domain.Tests
             Assert.True(shortCode.Length == 5);
             Assert.True(regexItem.IsMatch(shortCode));
         }
-
-
     }
 }
 
